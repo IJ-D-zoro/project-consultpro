@@ -19,6 +19,25 @@
 
   gtag('config', 'AW-17965665177');
 </script>
+<!-- Event snippet for Sign-up conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17965665177/fzxACMmrpt8cEJmX2fZC',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 <body>
     <div class="top">
         <div class="nav">
@@ -42,7 +61,7 @@
             <h4>driving growth & innovation for your company</h4>
         </div>
         <div class="top_button">
-            <button style="height: 50px; width: 120px;background-color: rgb(0,123,255);">Get started</button>
+            <button style="height: 50px; width: 120px;background-color: rgb(0,123,255);" onclick="gtag_report_conversion('https://ij-d-zoro.github.io/project-consultpro/')">Get started</button>
             <button style="height: 50px; width: 120px;">Learn more</button>
         </div>
     </div>
