@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thank You | Consultpro</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Inter, Arial, Helvetica, sans-serif;
+            background: #07070b;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        /* ================= BACKGROUND ================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -2;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.18), transparent 30%),
+                #07070b;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 10s infinite alternate ease-in-out;
+        }
+
+        .orb.one {
+            width: 300px;
+            height: 300px;
+            background: rgba(124, 58, 237, 0.28);
+            top: -100px;
+            left: -80px;
+        }
+
+        .orb.two {
+            width: 350px;
+            height: 350px;
+            background: rgba(219, 39, 119, 0.20);
+            right: -120px;
+            bottom: -120px;
+            animation-delay: 2s;
+        }
+
+        .orb.three {
+            width: 180px;
+            height: 180px;
+            background: rgba(59, 130, 246, 0.15);
+            right: 20%;
+            top: 10%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(40px, 30px) scale(1.15);
+            }
+        }
+
+        /* ================= MAIN ================= */
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .card {
+            width: min(900px, 100%);
+            padding: 65px 50px;
+            text-align: center;
+
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 32px;
+
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+            animation: cardAppear 1s ease forwards;
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ================= LOGO ================= */
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 45px;
+
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: linear-gradient(
+                135deg,
+                #8b5cf6,
+                #ec4899
+            );
+
+            box-shadow:
+                0 0 25px rgba(139, 92, 246, 0.4);
+        }
+
+        /* ================= CHECK ICON ================= */
+
+        .success-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.35);
+
+            box-shadow:
+                0 0 0 12px rgba(139, 92, 246, 0.04),
+                0 0 45px rgba(139, 92, 246, 0.25);
+
+            animation: pulse 3s infinite;
+        }
+
+        .success-icon span {
+            font-size: 42px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow:
+                    0 0 0 12px rgba(139, 92, 246, 0.04),
+                    0 0 45px rgba(139, 92, 246, 0.20);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 0 22px rgba(139, 92, 246, 0.02),
+                    0 0 65px rgba(139, 92, 246, 0.35);
+            }
+        }
+
+        /* ================= TEXT ================= */
+
+        .tag {
+            display: inline-block;
+            margin-bottom: 18px;
+
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: #c4b5fd;
+        }
+
+        h1 {
+            font-size: clamp(45px, 7vw, 78px);
+            line-height: 1;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        h1 .gradient {
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #c4b5fd,
+                #f9a8d4
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .description {
+            max-width: 600px;
+            margin: auto;
+
+            font-size: 18px;
+            line-height: 1.7;
+
+            color: #a1a1aa;
+        }
+
+        .description strong {
+            color: #ffffff;
+        }
+
+        /* ================= CTA ================= */
+
+        .buttons {
+            margin-top: 38px;
+
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 160px;
+            padding: 15px 25px;
+
+            border-radius: 14px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: 0.3s ease;
+        }
+
+        .btn-primary {
+            color: #ffffff;
+
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #db2777
+            );
+
+            box-shadow:
+                0 10px 30px rgba(124, 58, 237, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 15px 40px rgba(124, 58, 237, 0.4);
+        }
+
+        .btn-secondary {
+            color: #ffffff;
+
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.11);
+            transform: translateY(-4px);
+        }
+
+        /* ================= FOOTER ================= */
+
+        .footer {
+            margin-top: 50px;
+
+            font-size: 13px;
+            color: #71717a;
+        }
+
+        .footer span {
+            color: #a78bfa;
+        }
+
+        /* ================= DECORATION ================= */
+
+        .line {
+            width: 80px;
+            height: 1px;
+            margin: 35px auto 0;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #8b5cf6,
+                transparent
+            );
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                overflow: auto;
+            }
+
+            .page {
+                padding: 18px;
+            }
+
+            .card {
+                padding: 45px 22px;
+                border-radius: 25px;
+            }
+
+            .logo {
+                margin-bottom: 35px;
+            }
+
+            .success-icon {
+                width: 75px;
+                height: 75px;
+            }
+
+            .success-icon span {
+                font-size: 34px;
+            }
+
+            h1 {
+                font-size: 48px;
+                letter-spacing: -2.5px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .footer {
+                margin-top: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="orb three"></div>
+    </div>
+
+
+    <!-- Main Content -->
+    <main class="page">
+
+        <section class="card">
+
+            <!-- Business Logo -->
+            <div class="logo">
+                <div class="logo-icon">C</div>
+                <span>Consultpro</span>
+            </div>
+
+
+            <!-- Success Icon -->
+            <div class="success-icon">
+                <span>✓</span>
+            </div>
+
+
+            <!-- Main Message -->
+            <div class="tag">
+                Thanks for stopping by
+            </div>
+
+            <h1>
+                Thank You<br>
+                <span class="gradient">for Visiting.</span>
+            </h1>
+
+            <p class="description">
+                We truly appreciate you taking the time to explore
+                <strong>Consultpro</strong>.
+                Your visit means a lot to us — and we're excited
+                about what we can build together.
+            </p>
+
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <a href="index.html" class="btn btn-primary">
+                    ← Back to Home
+                </a>
+
+                <a href="contact.html" class="btn btn-secondary">
+                    Let's Connect →
+                </a>
+
+            </div>
+
+
+            <div class="line"></div>
+
+
+            <!-- Footer -->
+            <div class="footer">
+                © 2026 <span>Consultpro</span> · Let's create something remarkable.
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
